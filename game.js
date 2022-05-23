@@ -41,8 +41,8 @@ function direction (event) {
 }
 
 function eatTail(head, bodySnake) {
-    for(let i = 0; i < bodySnake.length; i++){
-        if(head.x == bodySnake[i].x && head.y == bodySnake[i].y)
+    for(const element of bodySnake){
+        if(head.x == element.x && head.y == element.y)
         clearInterval(field);
     }
 }
@@ -50,9 +50,9 @@ function eatTail(head, bodySnake) {
 function drawGame () {
     сontext.drawImage(ground, 0, 0);
     сontext.drawImage(food, foodСoordinates.x, foodСoordinates.y);
-    for(let i = 0; i < snake.length; i++){
-        сontext.fillStyle = i == 0 ? 'green' : '#00FF00';
-        сontext.fillRect(snake[i].x, snake[i].y, BOX, BOX)
+    for(const item of snake){
+        сontext.fillStyle = item == 0 ? 'green' : '#00FF00';
+        сontext.fillRect(item.x, item.y, BOX, BOX)
     }
     сontext.fillStyle = "white";
     сontext.font = "50px Arial";
